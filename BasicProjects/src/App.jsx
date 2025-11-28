@@ -5,16 +5,18 @@ import FetchData from './Pages/FetchData'
 import ToggleBtn from './Pages/Toggle'
 import FormHandle from './Pages/FormHandler'
 import UnctrolledForm from './Pages/UncontrolledForm'
+import BgChange from './Pages/BgChange'
 
 function App() {
 
   return(<>
-    <Todos />
+    {/* <Todos /> */}
     {/* <Counter /> */}
     {/* <FetchData /> */}
     {/* <ToggleBtn /> */}
     {/* <FormHandle /> */}
     {/* <UnctrolledForm /> */}
+    <BgChange />
   </>)
  
 }
