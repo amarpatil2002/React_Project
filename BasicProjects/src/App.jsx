@@ -6,6 +6,7 @@ import ToggleBtn from './Pages/Toggle'
 import FormHandle from './Pages/FormHandler'
 import UnctrolledForm from './Pages/UncontrolledForm'
 import BgChange from './Pages/BgChange'
+import CaptchGenerate from './Pages/CaptchGenerate'
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
     {/* <ToggleBtn /> */}
     {/* <FormHandle /> */}
     {/* <UnctrolledForm /> */}
-    <BgChange />
+    {/* <BgChange /> */}
+    <CaptchGenerate />
   </>)
  
 }
