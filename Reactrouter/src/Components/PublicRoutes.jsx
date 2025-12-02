@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router-dom'
 
 function PublicRoutes() {
 
-    const [token , setToken] = useState(false)
+    const [token , setToken] = useState(true)
     // const token = localStorage.getItem("token")
 
 

@@ -33,22 +33,26 @@ function App() {
           ],
         },
         {
-          element:<ProtectedRoute />,
-          children:[
+          element: <ProtectedRoute />,
+          children: [
             {
-              path:'dashboard/:userid',
-              element:<Dashboard />
+              path: "dashboard",
+              element: <Dashboard />,
             },
+            // {
+            //   path:'dashboard/:userid',
+            //   element:<Dashboard />
+            // },
             {
-              path:'/github',
-              element:<GithubData />
-            }
-          ]
+              path: "/github",
+              element: <GithubData />,
+            },
+          ],
         },
         {
-          path:"*",
-          element:<PageNotFound />
-        }
+          path: "*",
+          element: <PageNotFound />,
+        },
       ],
     },
   ]);
