@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SearchBar = () => {
   const [search, setSearch] = useState("");
+  const [apiData, setApiData] = useState([]);
 
   const items = ["Apple", "Banana", "Jackfruit", "Kiwi", "Pineapple"];
 
-  const filterItem = items.filter((item) =>
-    item.toLowerCase().includes(search.toLowerCase())
-  );
+  const filterItem = apiData.filter((item) => {
+    return item.title.toLowerCase().includes(search.toLowerCase());
+  });
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos")
+      .then((res) => res.json())
+      .then((res) => setApiData(res))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <>
@@ -21,7 +29,7 @@ const SearchBar = () => {
 
       {filterItem.map((item, i) => (
         <ul key={i}>
-            <li>{item}</li>
+          <li>{item.title}</li>
         </ul>
       ))}
     </>
