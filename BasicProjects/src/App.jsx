@@ -7,6 +7,7 @@ import FormHandle from './Pages/FormHandler'
 import UnctrolledForm from './Pages/UncontrolledForm'
 import BgChange from './Pages/BgChange'
 import CaptchGenerate from './Pages/CaptchGenerate'
+import SearchBar from './Pages/SearchBar'
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
     {/* <FormHandle /> */}
     {/* <UnctrolledForm /> */}
     {/* <BgChange /> */}
-    <CaptchGenerate />
+    {/* <CaptchGenerate /> */}
+    <SearchBar />
   </>)
  
 }

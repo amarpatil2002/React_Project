@@ -28,28 +28,19 @@ React allows developers to create reusable UI components and efficiently manage 
  JSX allows developers to write HTML code inside JavaScript. 
 
 4. Difference between React & Angular 
-
-Point
 React
+Definition : React is a JavaScript library for building UI components.
+Developer / Maintainer : Managed by Facebook (Meta)
+Language Used : Written in JavaScript (can use JSX)
+Data Binding : Supports one-way (unidirectional) data binding
+DOM : Uses Virtual DOM
+
 Angular
-Definition
-React is a JavaScript library for building UI components.
-Angular is a full-fledged framework built using TypeScript.
-Developer / Maintainer
-Managed by Facebook (Meta)
-Managed by Google
-Language Used
-Written in JavaScript (can use JSX)
-Written in TypeScript (a superset of JavaScript)
-Data Binding
-Supports one-way (unidirectional) data binding
-Supports two-way (bidirectional) data binding
-DOM
-Uses Virtual DOM
-Uses Real DOM
-
-
-
+Definition : Angular is a full-fledged framework built using TypeScript.
+Developer / Maintainer : Managed by Google
+Language Used : Written in TypeScript (a superset of JavaScript)
+Data Binding : Supports two-way (bidirectional) data binding
+DOM : Uses Real DOM
 
 5. What is SPA? 
 • SPA stands for Single-Page Application. 
