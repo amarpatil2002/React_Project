@@ -1,0 +1,287 @@
+React Notes
+
+Internal working of React:
+1. Reconciliation : 
+Reconciliation is the process where React compares the old Virtual DOM with the new Virtual DOM and decides what changes to make on the real screen.
+2. Fiber : 
+• Fiber is React’s internal engine that breaks UI updates into small tasks so the app doesn’t freeze and updates feel smooth.
+• Fiber helps React do work slowly and smoothly instead of doing everything at once.
+• React Fiber is a new architecture introduced to allow React to pause, resume, and prioritize updates, making animations, typing, and UI interactions smoother.
+
+1. What is React.js? 
+React is a component-based JavaScript library used for building dynamic and reusable user interfaces.
+React allows developers to create reusable UI components and efficiently manage the state of these components. It was developed by Facebook and released in 2013. 
+
+2. What are the key features of React.js? 
+• Virtual DOM : 
+  React uses a lightweight copy of the real DOM.
+  Updates only the parts that change → better performance.
+• Component-based architecture:
+  UI is broken down into small, reusable pieces called components.
+  Makes code easy to manage and scale.
+• JSX syntax for defining components 
+• One-way data binding for easier state management 
+• React Native for building mobile applications 
+
+3. What is JSX? 
+ JSX stands for JavaScript XML. 
+ JSX allows developers to write HTML code inside JavaScript. 
+
+4. Difference between React & Angular 
+
+Point
+React
+Angular
+Definition
+React is a JavaScript library for building UI components.
+Angular is a full-fledged framework built using TypeScript.
+Developer / Maintainer
+Managed by Facebook (Meta)
+Managed by Google
+Language Used
+Written in JavaScript (can use JSX)
+Written in TypeScript (a superset of JavaScript)
+Data Binding
+Supports one-way (unidirectional) data binding
+Supports two-way (bidirectional) data binding
+DOM
+Uses Virtual DOM
+Uses Real DOM
+
+
+
+
+5. What is SPA? 
+• SPA stands for Single-Page Application. 
+• In a React.js SPA, the initial HTML, CSS, and JavaScript are loaded once when the user first  visits the site. 
+• After that, React manages the rendering of different components and user interactions. 
+• When navigating to a new "page" within the app, React dynamically updates only the content that needs to change without reloading the entire page from the server.
+
+6. Explain the concept of virtual DOM 
+Answer: The virtual DOM is a lightweight copy of the actual DOM in memory, primarily used to improve performance by minimizing DOM manipulation operations. 
+When changes occur, the system first updates the virtual DOM, then calculates the difference between the virtual DOM and the real DOM, and finally applies only necessary changes to the real DOM.
+
+7. What is diff bet props & states 
+• Props: 
+	• Basically properties. 
+	• Used to transfer data from a parent to a child component. 
+	• Immutable (cannot be changed by the component that receives them). 
+• State: 
+	• Managed internally within a component. 
+	• Can be modified using the setState method. 
+	• Represents the current condition or dynamic information of a component. 
+
+8. What are higher order component (Hoc) in Reactjs 
+• Higher-order components are functions that take a component and return a new component with extended functionality. 
+
+9. What is React Fragment? 
+• Fragments are syntax that allows us to add multiple elements to a React component without wrapping them in an extra DOM node. 
+
+• Why used: Before React version 16.2, returning multiple elements required a single wrapper div, which added unnecessary markup to the DOM and could affect HTML and CSS structure. 
+• The use of Fragments avoids this issue, leading to cleaner and more valid HTML. 
+
+10. Explain the React Lifecycle methods 
+There are basically three phases: 
+• Mounting phase: The component is being created and inserted into the DOM. 
+• Updating phase: The component is being re-rendered as a result of changes to props or state. 
+• Unmounting phase: The component is being removed from the DOM. 
+
+The methods listed in the image for the mounting phase are: 
+Step 1: Constructor 
+The constructor is the first method called when a component is created. It is used for initializing state and binding event handlers. 
+Step 2: Static getDerivedStateFromProps 
+Introduced in React 16.3, this method is called right before rendering when new props and state are received. It returns an object to update the state or $\mathbf{null}$ to indicate no change. 
+Step 3: render() 
+It returns the JSX (React elements) to be rendered to the DOM. 
+Step 4: componentDidMount() 
+This method is called after the component is rendered for the first time. It is used for fetching data from an API and calls only one time. 
+
+The methods listed in the image for the updating phase are: 
+Step 1: Static getDerivedStateFromProps 
+Answer: This method is called again as part of the updating phase, similar to its role in the mounting phase. It is used to derive state from props before rendering when new props or state are received. 
+Step 2: shouldComponentUpdate 
+Answer: This method is called before rendering when new props or state are received. It allows control over whether a component should re-render or not by returning a boolean value (true by default), which can prevent unnecessary re-renders for performance optimization. 
+Step 3: render 
+Answer: This method renders the component if shouldComponentUpdate returns true. It is responsible for returning the component's UI structure. 
+Step 4: getSnapshotBeforeUpdate 
+Answer: This method is called right before the DOM is updated. It allows capturing information from the DOM (like scroll position) before the changes are applied. 
+Step 5: componentDidUpdate 
+Answer: This method is called after the component is updated in the DOM. It is used for performing actions (like network requests or DOM manipulations) after a component re-renders. 
+
+The methods listed in the image for the unmounting phase are:
+Step 1: Unmounting Phase 
+Answer: This phase involves the componentWillUnmount() method, which is called just before the component is removed from the DOM. It is used for cleanup tasks such as removing event listeners or canceling timers. 
+
+13. What is component? 
+• Components are independent and reusable pieces of code that serve the same purpose as JavaScript functions but work in isolation. 
+
+There are two main types of components:
+• Functional Components: Also known as stateless or presentational components, they are defined as JavaScript functions that accept props as input and return React elements to describe what should be rendered on screen. They are primarily used for representing UI component elements that do not need to manage state or lifecycle methods.
+
+• Class Components: These are JavaScript classes that extend React.Component. They have a render() method that returns a React element describing the component UI. Class components are used when the component needs to manage state and handle lifecycle methods. 
+
+14. What is prop drilling? 
+• Prop drilling is a situation where data is passed from one component through multiple interdependent components until it gets to the component where the data is needed. 
+
+• How to fix it: The Context API provides a way to share state or data globally across components without manually passing props down through every level of the component tree. 
+
+15. Context API 
+• The Context API in React is a way to share data across the component tree without passing props down manually at every level.
+
+• Context API consists of three main parts: 
+1. createContext: Create a context object using React.createContext(). 
+2. To provide context, wrap the root of the component tree with a Context.Provider and pass the data to share as the value prop. 
+3. To consume context, use Context.Consumer or the useContext hook to access the shared data within child components. 
+
+16. What is state lifting in React? 
+• State lifting in React refers to the process of moving the state from a lower-level component to a higher-level component in the component hierarchy so that it can be shared between multiple child components. 
+
+• In a simple scenario with a parent component containing two child components that need to display the same piece of data, rather than storing that data separately in each child component, the data is moved up to the parent component's state.The parent component then passes this data down as props to each child component. 
+
+
+
+17. What are the React hooks?
+• React Hooks are functions that enable the use of state and other React features within functional components. 
+• Hooks were introduced in React version 16.8 to allow functional components to manage stateful logic and side effects, a capability previously limited to class components. 
+• They provide a more direct application programming interface (API) to core React concepts like state, lifecycle, and context. 
+
+• Rules for using Hooks
+1. Hooks can only be used in functional components, not class components.
+2. They must be called at the top level of the component function.
+3. Hooks should not be placed inside loops, conditional statements, or nested functions.
+
+useState()
+• The useState hook allows functional components to manage local state. 
+It returns an array containing the current state value and a function to update that value.
+Syntax example: const [name, setName] = useState(initialValue);
+
+useEffect()
+• The useEffect hook allows performing side effects in functional components. 
+• It serves the same purpose as lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount in class components, but in a unified API.
+Common side effects include data fetching (e.g., fetching APIs), subscriptions, and manual Document Object Model (DOM) manipulations.
+• The function passed to useEffect runs after every render by default, but its execution can be controlled using a dependency array.
+• Syntax example:
+useEffect(() => { /* side effect code */ }, [dependencies]);
+• A return function within useEffect handles cleanup (similar to componentWillUnmount).
+
+
+
+useContextes
+• A functional component to consume value from the Context API.
+• useContext is a React Hook that accepts a context object and returns the current context value. It allows functional components to access context without using a Context.Consumer or higher-order components.
+
+useRef()
+• It creates a mutable variable which will not re-render the component.
+• The useRef hook is used to access a DOM element directly or to persist values across renders without causing the component to update. The value is stored in the current property of the returned object.
+
+useCallback()
+• A React hook that memoizes a callback function
+The useCallback hook prevents unnecessary re-renders in functional components by returning a memoized version of the callback function that only changes if one of the dependencies changes. 
+• It accepts a callback function and a dependencies array.
+• It returns the memoized callback.
+
+useMemo()
+• A React hook that memoizes a computed value
+• The useMemo hook memoizes a value to prevent expensive, unnecessary recalculations or re-renders. 
+• It accepts a function and a dependencies array.
+• It returns the memoized value.
+
+useReducer()
+•  A React hook for managing complex state logic
+• The useReducer hook is an alternative to useState, often used for managing more complex state logic. 
+• It accepts a reducer function and an initial state, returning the current state and a dispatch function.
+• The syntax is const [state, dispatch] = useReducer(reducer, initialState).
+
+useLayoutEffect()
+• A React hook similar to useEffect but fires synchronously
+• The useLayoutEffect hook is similar to useEffect but fires synchronously after all DOM mutations have been calculated and applied, making it useful for measurements or DOM manipulations.
+
+
+
+
+18. Difference between Controlled components &  Uncontrolled components 
+1. Controlled components 
+• Controlled components are those where the form data is controlled by React state. 
+• Whenever the value of the input changes, the React state is updated and the component is re-rendered with the new value. 
+• To update the value of the input, a controlled component needs an onChange event handler. 
+
+2. Uncontrolled components 
+• Uncontrolled components are those where the form data is handled by the DOM itself through refs. 
+• The value of an uncontrolled component can be retrieved using a ref after the user has interacted with it. 
+• Uncontrolled components are useful in situations where direct access to the DOM is needed, such as when integrating with third-party libraries that require DOM access. 
+
+19. What is setState() method in React.js? 
+• A method used to update a component's state object in React/Preact. 
+• The setState() method allows updating the state of a component, which triggers a re-render of the component with the updated state. This method is asynchronous and accepts either an object or a function as an argument to update the state. 
+
+20. What is the use of key in Preact? 
+•  A special attribute used to identify elements in a list. 
+• Keys are used in React/Preact to identify which items have changed, been updated, or deleted when rendering lists of elements. They provide a unique identity to the elements in the UI. 
+
+21. How to validate props in React 
+• React provides a built-in propTypes property for validating props. 
+This allows developers to specify the types for each prop a component expects. This helps catch bugs early by issuing a warning in the console if the provided props do not match the expected types. The example in the notes shows how to use prop-types library for this purpose: 
+
+import PropTypes from 'prop-types';
+const MyComp = (props) => {
+  return <h2>{props.name}</h2>;
+};
+
+MyComp.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+
+
+
+22. What are Pure components? 
+• Pure components are a type of React component that automatically implements the shouldComponentUpdate() lifecycle method with a shallow comparison of props and state. 
+• In simple words, if the previous values of the state and props are the same as the new values, the component will not re-render itself. This restricts unnecessary re-rendering and can improve performance. The example in the notes shows a class component extending React.PureComponent: 
+export default class App extends React.PureComponent {
+  constructor() {
+    super();
+    this.state = { count: 1 };
+  }
+
+  render() {
+    console.log("check re-rendering");
+    return (
+      <>
+        <h2>App component: {this.state.count}</h2>
+        <button onClick={() => this.setState({ count: 1 })}>Click</button>
+      </>
+    );
+  }
+}
+
+
+Redux In React
+
+1. What is Redux? 
+Answer: Redux Redux is a state management library that stores the application's state in a central store and updates it via actions and reducers. It helps different components share data easily. 
+
+2. Why do we use Redux? 
+• To manage data flow in big applications Redux is used because in large applications, passing data between components becomes difficult. Redux makes data flow predictable, easier to debug, and simpler to manage.
+
+3. Main parts of Redux 
+Store, Action, and Reducer The main parts of Redux are:
+• Store: A single big JavaScript object or place that contains all the application's data. 
+• Action: A simple JavaScript object that tells Redux what to do; it is like sending a message to Redux. 
+• Reducer: A function that decides how the state should change. It takes the current state and an action, and returns a new state. 
+
+4. React - Redux 
+• React-Redux is a library that lets React components read data from and send actions to Redux easily. 
+• Provider makes the Redux store available to the entire app. Without it, access components cannot access the store. 
+• useSelector: A hook used to read data from the Redux store. 
+• useDispatch: A hook used to send actions to Redux. 
+
+5. Redux Thunk 
+• A middleware that lets you write async code (like API calls) inside Redux. 
+
+
+
+
+
+
+
+
