@@ -4,7 +4,7 @@ const SearchBar = () => {
   const [search, setSearch] = useState("");
   const [apiData, setApiData] = useState([]);
 
-  const items = ["Apple", "Banana", "Jackfruit", "Kiwi", "Pineapple"];
+  // const items = ["Apple", "Banana", "Jackfruit", "Kiwi", "Pineapple"];
 
   const filterItem = apiData.filter((item) => {
     return item.title.toLowerCase().includes(search.toLowerCase());

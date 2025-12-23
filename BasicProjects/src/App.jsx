@@ -8,6 +8,7 @@ import UnctrolledForm from './Pages/UncontrolledForm'
 import BgChange from './Pages/BgChange'
 import CaptchGenerate from './Pages/CaptchGenerate'
 import SearchBar from './Pages/SearchBar'
+import Pagination from './Pages/Pagination'
 
 function App() {
 
@@ -20,7 +21,8 @@ function App() {
     {/* <UnctrolledForm /> */}
     {/* <BgChange /> */}
     {/* <CaptchGenerate /> */}
-    <SearchBar />
+    {/* <SearchBar /> */}
+    <Pagination />
   </>)
  
 }
