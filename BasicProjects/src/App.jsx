@@ -9,6 +9,7 @@ import BgChange from './Pages/BgChange'
 import CaptchGenerate from './Pages/CaptchGenerate'
 import SearchBar from './Pages/SearchBar'
 import Pagination from './Pages/Pagination'
+import LazyLoading from './Pages/LayLoading/LazyLoading'
 
 function App() {
 
@@ -22,7 +23,8 @@ function App() {
     {/* <BgChange /> */}
     {/* <CaptchGenerate /> */}
     {/* <SearchBar /> */}
-    <Pagination />
+    {/* <Pagination /> */}
+    <LazyLoading />
   </>)
  
 }
